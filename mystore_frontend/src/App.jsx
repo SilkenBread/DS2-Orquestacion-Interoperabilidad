@@ -8,7 +8,6 @@ export const App = () => {
   const [description, setDescription] = useState("");
 
   const handleSubmit = (event) => {
-    
     event.preventDefault();
     // Realizar petición POST con los campos "name" y "description"
     fetch("http://localhost:4000/categories/", {
@@ -18,37 +17,35 @@ export const App = () => {
     })
       .then((response) => response.json())
       .then((data) => console.log(data));
-
-}
+  }
 
   return (
     <div className="App">
       <img src={superstoreimg} alt="Super Store" className="imagen" />
 
-         <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="formName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control 
-           type="text" 
-           value={name} 
-           onChange={(e) => setName(e.target.value)} 
-        />
-      </Form.Group>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="formName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </Form.Group>
 
-      <Form.Group controlId="formDescription">
-        <Form.Label>Description</Form.Label>
-        <Form.Control 
-            type="text" 
-            value={description} 
-            onChange={(e) => setDescription(e.target.value)} 
-        />
-      </Form.Group>
+        <Form.Group controlId="formDescription">
+          <Form.Label>Description</Form.Label>
+          <Form.Control
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Send 
-      </Button>
-    </Form>
-       
+        <Button variant="primary" type="submit">
+          Send
+        </Button>
+      </Form>
     </div>
   )
 }
